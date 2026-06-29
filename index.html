@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
 
 <title>Alex Lu</title>
 <meta name="description" content="Alex Lu — PhD applicant in Computer Vision and Machine Learning.">
@@ -87,11 +86,15 @@
 
   .row{ display: flex; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: .97rem; }
   .row:last-child{ border-bottom: none; }
-  .row .when{ color: var(--faint); white-space: nowrap; min-width: 128px; font-variant-numeric: tabular-nums; }
+  .row .when{ color: var(--faint); white-space: nowrap; flex-shrink: 0; min-width: 132px; font-variant-numeric: tabular-nums; }
   .row .what strong{ font-weight: 600; }
   .row .what .sub{ color: var(--muted); }
   .row .what ul{ margin: 6px 0 0 18px; color: var(--muted); }
   .row .what ul li{ margin-bottom: 3px; }
+
+  .langs{ list-style: none; }
+  .langs li{ padding: 3px 0; }
+  .langs b{ font-weight: 600; }
 
   footer{ margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--faint); font-size: .85rem; }
 
@@ -122,30 +125,34 @@
       <p class="affil">M.S. in Electronic &amp; Information Engineering, <strong>Shanghai Jiao Tong University</strong></p>
       <!-- <p class="affil">Department of Automation · CVPR Lab</p> -->
 
+      <!-- Hero 一句话研究身份：精炼、可扫读 -->
       <p class="focus">
-        I work on <b>image generation</b> and <b>image stylization</b> &mdash; including facial stylization,
-        photo cartoonization, and video stylization &mdash; using generative models such as StyleGAN.
+        I'm dedicated to <b>generative AI</b> &mdash; spanning image and video generation
+        and large language models.
       </p>
 
       <div class="contact">
         <a href="mailto:alexlu99@outlook.com">Email</a>
+        <span class="sep">·</span><a href="https://github.com/AlexLu99" target="_blank">GitHub</a>
         <!-- 以下链接暂时隐藏，需要时取消注释并填入真实链接
         <span class="sep">·</span><a href="cv.pdf" target="_blank">CV</a>
         <span class="sep">·</span><a href="#" target="_blank">Google Scholar</a>
-        <span class="sep">·</span><a href="#" target="_blank">GitHub</a>
         -->
       </div>
     </div>
   </div>
 
-  <!-- ===== 关于 ===== -->
+  <!-- ===== About：问候 + 叙事简历（背景 → 现在 → 目标）===== -->
   <section id="about">
     <p class="lead">
-      I recently completed my M.S. at Shanghai Jiao Tong University (admitted by recommendation),
-      where I research in the CVPR Lab on image stylization and generation. My work designs generative
-      models that produce faithful, controllable stylized imagery for portraits, photos, and video.
-      <!-- 下面这句填上你申请的入学学期，例如 "starting Fall 2027" -->
-      I am applying for a PhD position in computer vision and generative modeling.
+      Hi, and welcome to my homepage! I'm <strong>Alex Lu</strong>. I earned my M.S. at Shanghai Jiao Tong
+      University (by recommendation), where my research focused on image and video generation. Before that,
+      I studied deep learning at Northeastern University. I am currently a visiting student at Westlake
+      University, working on knowledge in large language models (LLMs).
+      <strong>I am actively seeking PhD opportunities for 2026 / 2027.</strong>
+      <!-- "到…" 这部分可按你的真实重心调整 -->
+      My research interests range from generative models (LLMs, diffusion models) to controllable,
+      personalized generation and the knowledge inside large models.
     </p>
   </section>
 
@@ -153,14 +160,14 @@
   <section id="interests">
     <h2>Research Interests</h2>
     <p class="interests">
-      <b>Image Generation</b> · <b>Facial &amp; Photo Stylization</b> ·
-      <b>Generative Models (GANs)</b> · <b>Computer Vision</b>
+      <b>Image / Video Generation &amp; Editing</b> · <b>Generative Models (LLMs, Diffusion, etc.)</b> ·
+      <b>Computer Vision</b>
     </p>
     <p class="lead" style="margin-top:10px">
-      I am interested in how to make stylized image and video generation both expressive and faithful &mdash;
-      through semantic preservation, pseudo-paired supervision, style-adaptive feature modules, and temporal
-      consistency for video. More broadly, I want to build controllable generative models that bridge realism
-      and artistic style.
+      I have broad interests in machine learning and deep learning. Within generative modeling, I focus on
+      image and video generation and editing (including stylization), especially personalization tasks. I am
+      also interested in large language models, where I currently explore how to represent and use the
+      &ldquo;knowledge&rdquo; inside them.
     </p>
   </section>
 
@@ -174,9 +181,22 @@
   </section>
   -->
 
-  <!-- ===== 论文 ===== -->
+  <!-- ===== 论文：按时序倒排，最新在上 ===== -->
   <section id="publications">
     <h2>Publications &amp; Manuscripts</h2>
+
+    <div class="pub">
+      <div class="tag">arXiv<br>2025</div>
+      <div class="body">
+        <div class="title">Advancing Facial Stylization through Semantic Preservation and Pseudo-Paired Supervision</div>
+        <div class="authors"><span class="me">Alex Lu</span>, Yue Zhou</div>
+        <div class="venue">arXiv:2506.22022, June 2025</div>
+        <div class="plinks">
+          <a href="https://arxiv.org/pdf/2506.22022" target="_blank">[PDF]</a>
+          <a href="https://github.com/AlexLu99/Facial-Stylization" target="_blank">[Code]</a>
+        </div>
+      </div>
+    </div>
 
     <div class="pub">
       <div class="tag">ACCV<br>2024</div>
@@ -186,20 +206,7 @@
         <div class="venue">Asian Conference on Computer Vision (ACCV), 2024</div>
         <div class="plinks">
           <a href="https://openaccess.thecvf.com/content/ACCV2024/papers/Lu_Enhancing_Photo_Animation_Augmented_Stylistic_Modules_and_Prior_Knowledge_Integration_ACCV_2024_paper.pdf" target="_blank">[PDF]</a>
-          <!-- <a href="#" target="_blank">[Code]</a> -->
-        </div>
-      </div>
-    </div>
-
-    <div class="pub">
-      <div class="tag">Manuscript</div>
-      <div class="body">
-        <div class="title">Advancing Facial Stylization through Semantic Preservation and Pseudo-Paired Supervision</div>
-        <div class="authors"><span class="me">Alex Lu</span>, Yue Zhou</div>
-        <div class="venue">Manuscript / under review</div>
-        <div class="plinks">
-          <a href="https://arxiv.org/abs/2506.22022" target="_blank">[arXiv]</a>
-          <!-- <a href="#" target="_blank">[Code]</a> -->
+          <a href="https://github.com/AlexLu99/Photo-Animation" target="_blank">[Code]</a>
         </div>
       </div>
     </div>
@@ -210,7 +217,7 @@
     <h2>Research Experience</h2>
 
     <div class="row">
-      <div class="when">2025.03 – Present</div>
+      <div class="when">Present</div>
       <div class="what">
         <strong>Research Assistant</strong>, Encode Lab, School of Engineering, Westlake University
         &nbsp;<span class="sub">· advised by Huan Wang</span>
@@ -226,7 +233,7 @@
         <strong>Research Assistant</strong>, CVPR Lab, Department of Automation, Shanghai Jiao Tong University
         &nbsp;<span class="sub">· advised by Yue Zhou</span>
         <ul>
-          <li>StyleGAN-based facial stylization with semantic constraints and pseudo-paired supervision.</li>
+          <li>Facial stylization with semantic constraints and pseudo-paired supervision.</li>
           <li>Photo cartoonization with style-adaptive modules and prior losses (ACCV 2024).</li>
           <li>Temporal consistency for video stylization.</li>
         </ul>
@@ -237,6 +244,7 @@
       <div class="when">2021.11 – 2022.07</div>
       <div class="what">
         <strong>Research Assistant</strong>, Hazardous Materials Detection Group, Northeastern University
+        &nbsp;<span class="sub">· advised by Tong Jia</span>
         <ul>
           <li>Faster, more accurate image detection network for hazardous materials.</li>
         </ul>
@@ -265,20 +273,6 @@
     </div>
   </section>
 
-  <!-- ===== 教学 ===== -->
-  <section id="teaching">
-    <h2>Teaching</h2>
-    <div class="row">
-      <div class="when">2024</div>
-      <div class="what"><strong>Teaching Assistant</strong>, Xuesen Challenge Summer Camp — AI Division, SJTU
-        <span class="sub"> · division ranked #1</span></div>
-    </div>
-    <div class="row">
-      <div class="when">2023</div>
-      <div class="what"><strong>Teaching Assistant</strong>, Digital Image Processing, SJTU</div>
-    </div>
-  </section>
-
   <!-- ===== 荣誉 ===== -->
   <section id="awards">
     <h2>Awards &amp; Honors</h2>
@@ -304,8 +298,32 @@
     </div>
   </section>
 
+  <!-- ===== 教学 ===== -->
+  <section id="teaching">
+    <h2>Teaching</h2>
+    <div class="row">
+      <div class="when">2024</div>
+      <div class="what"><strong>Teaching Assistant</strong>, Xuesen Challenge Summer Camp — AI Division, SJTU
+        <span class="sub"> · division ranked #1 (Most Popular Summer Camp)</span></div>
+    </div>
+    <div class="row">
+      <div class="when">2023</div>
+      <div class="what"><strong>Teaching Assistant</strong>, Digital Image Processing, SJTU
+        <span class="sub"> · course evaluations raised to A/A/A across three classes</span></div>
+    </div>
+  </section>
+
+  <!-- ===== 语言 ===== -->
+  <section id="languages">
+    <h2>Languages</h2>
+    <ul class="langs">
+      <li><b>Chinese</b> — native</li>
+      <li><b>English</b> — IELTS 7.5 (Listening 8 / Reading 8.5 / Writing 6 / Speaking 7)</li>
+    </ul>
+  </section>
+
   <footer>
-    English: IELTS 7.5 (L8 / R8.5 / W6 / S7) &nbsp;·&nbsp; Last updated June 2026 &nbsp;·&nbsp; Built with GitHub Pages
+    Last updated June 2026 &nbsp;·&nbsp; Built with GitHub Pages
   </footer>
 
 </div>
