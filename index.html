@@ -5,24 +5,44 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Alex Lu</title>
-<meta name="description" content="Alex Lu — PhD applicant in Computer Vision and Machine Learning.">
+<meta name="description" content="Alex Lu — PhD applicant in generative AI, computer vision, and large language models.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
 
-  
 <style>
   :root{
-    --bg: #FCFCFD;
-    --ink: #1B1B22;
-    --muted: #5C5C68;
-    --faint: #8A8A95;
-    --line: #E7E7EC;
-    --accent: #2B5C99;
-    --accent-soft: #EAF0F7;
+    --bg:        #FBFBFC;
+    --surface:   #FFFFFF;
+    --ink:       #16161C;
+    --muted:     #54545E;
+    --faint:     #8B8B95;
+    --line:      #E9E9EF;
+    --line-soft: #F1F1F5;
+    --accent:    #245AA6;
+    --accent-2:  #1C7C66;          /* used only for the "open" status signal */
+    --accent-soft:#EBF1F9;
     --maxw: 720px;
+    --shadow: 0 1px 2px rgba(20,20,30,.04), 0 8px 24px rgba(20,20,30,.05);
   }
+
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:        #0F0F14;
+      --surface:   #16161D;
+      --ink:       #ECECF2;
+      --muted:     #A2A2AD;
+      --faint:     #71717C;
+      --line:      #262630;
+      --line-soft: #1D1D25;
+      --accent:    #79A6EC;
+      --accent-2:  #4FBFA0;
+      --accent-soft:#16202E;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 28px rgba(0,0,0,.35);
+    }
+  }
+
   *{ box-sizing: border-box; margin: 0; padding: 0; }
   html{ scroll-behavior: smooth; }
   body{
@@ -32,83 +52,154 @@
     line-height: 1.7;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
-  .wrap{ max-width: var(--maxw); margin: 0 auto; padding: 56px 28px 72px; }
+  .wrap{ max-width: var(--maxw); margin: 0 auto; padding: 64px 28px 80px; }
 
   a{ color: var(--accent); text-decoration: none; }
-  a:hover{ text-decoration: underline; }
+  a:hover{ text-decoration: underline; text-underline-offset: 2px; }
+  a:focus-visible{ outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
 
+  /* ===== Hero ===== */
   .hero{ display: flex; gap: 30px; align-items: flex-start; }
   .photo{
-    width: 132px; height: 132px; flex-shrink: 0;
-    border-radius: 8px; object-fit: cover; border: 1px solid var(--line);
+    width: 128px; height: 128px; flex-shrink: 0;
+    border-radius: 10px; object-fit: cover;
+    border: 1px solid var(--line); background: var(--surface);
+  }
+  .status{
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: "Inter", sans-serif; font-size: .8rem; font-weight: 600;
+    letter-spacing: .01em; color: var(--accent-2);
+    background: color-mix(in srgb, var(--accent-2) 9%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent-2) 22%, transparent);
+    padding: 4px 11px 4px 10px; border-radius: 100px; margin-bottom: 14px;
+  }
+  .status .dot{
+    width: 7px; height: 7px; border-radius: 50%; background: var(--accent-2);
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-2) 60%, transparent);
+    animation: pulse 2.4s ease-out infinite;
+  }
+  @keyframes pulse{
+    0%{ box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-2) 55%, transparent); }
+    70%{ box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent-2) 0%, transparent); }
+    100%{ box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-2) 0%, transparent); }
   }
   .name{
-    font-family:"Newsreader", serif; font-weight: 600;
-    font-size: 2.3rem; line-height: 1.1; letter-spacing: -.01em; margin-bottom: 6px;
+    font-family: "Newsreader", serif; font-weight: 600;
+    font-size: 2.4rem; line-height: 1.08; letter-spacing: -.015em; margin-bottom: 8px;
   }
-  .affil{ color: var(--muted); font-size: 1rem; margin-bottom: 4px; }
+  .affil{ color: var(--muted); font-size: 1rem; }
   .affil strong{ color: var(--ink); font-weight: 600; }
-  .focus{ color: var(--ink); font-size: 1.02rem; margin-top: 12px; }
+  .focus{
+    font-family: "Newsreader", serif; font-size: 1.18rem; line-height: 1.5;
+    color: var(--ink); margin-top: 14px; max-width: 46ch;
+  }
+  .focus b{ font-weight: 600; color: var(--accent); }
 
-  .contact{ margin-top: 16px; font-size: .95rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: 8px 14px; }
+  .contact{
+    margin-top: 18px; font-size: .92rem; color: var(--muted);
+    display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px;
+  }
   .contact a{ font-weight: 500; }
   .contact .sep{ color: var(--line); }
 
-  section{ margin-top: 44px; }
+  /* ===== Sections ===== */
+  section{ margin-top: 48px; }
   h2{
-    font-family:"Newsreader", serif; font-weight: 600; font-size: 1.35rem;
-    margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--line);
+    font-family: "Newsreader", serif; font-weight: 600; font-size: 1.4rem;
+    letter-spacing: -.01em;
+    margin-bottom: 18px; padding-bottom: 9px; border-bottom: 1px solid var(--line);
   }
   p{ color: var(--ink); }
   p.lead{ color: var(--muted); }
+  #about p.lead{ font-family: "Newsreader", serif; font-size: 1.08rem; line-height: 1.65; color: var(--muted); }
+  #about p.lead strong{ color: var(--ink); font-weight: 600; }
+  #about p.lead em{ font-style: italic; color: var(--ink); }
 
-  .interests{ color: var(--ink); }
-  .interests b{ color: var(--accent); font-weight: 600; }
+  .interests{ color: var(--ink); line-height: 1.9; }
+  .interests b{
+    color: var(--accent); font-weight: 600;
+    background: var(--accent-soft); padding: 2px 8px; border-radius: 6px;
+    white-space: nowrap;
+  }
 
-  .news{ list-style: none; }
-  .news li{ display: flex; gap: 16px; padding: 6px 0; font-size: .96rem; }
-  .news .date{ color: var(--faint); font-variant-numeric: tabular-nums; white-space: nowrap; min-width: 84px; }
-  .news .item{ color: var(--ink); }
-
-  .pub{ display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+  /* ===== Publications ===== */
+  .pub{
+    display: flex; gap: 18px; padding: 18px 0; border-bottom: 1px solid var(--line-soft);
+  }
   .pub:last-child{ border-bottom: none; }
   .pub .tag{
-    flex-shrink: 0; width: 64px; font-size: .72rem; font-weight: 600; color: var(--accent);
-    background: var(--accent-soft); border-radius: 5px; text-align: center; height: fit-content;
-    padding: 4px 0; margin-top: 3px; letter-spacing: .02em;
+    flex-shrink: 0; width: 62px; padding: 8px 0; height: fit-content; margin-top: 2px;
+    font-size: .72rem; font-weight: 600; line-height: 1.25; color: var(--accent);
+    text-align: center; letter-spacing: .03em;
+    background: var(--accent-soft); border-radius: 8px;
   }
-  .pub .body .title{ font-weight: 600; color: var(--ink); }
-  .pub .body .authors{ color: var(--muted); font-size: .93rem; margin: 2px 0; }
+  .pub .tag .yr{ display:block; color: var(--faint); font-weight: 500; font-size: .68rem; }
+  .pub .body .title{ font-weight: 600; color: var(--ink); line-height: 1.4; }
+  .pub .body .authors{ color: var(--muted); font-size: .92rem; margin: 3px 0; }
   .pub .body .authors .me{ color: var(--ink); font-weight: 600; }
-  .pub .body .venue{ font-family:"Newsreader",serif; font-style: italic; color: var(--muted); font-size: .95rem; }
-  .pub .body .plinks{ margin-top: 6px; font-size: .85rem; }
-  .pub .body .plinks a{ margin-right: 12px; }
+  .pub .body .venue{ font-family: "Newsreader", serif; font-style: italic; color: var(--muted); font-size: .95rem; }
+  .pub .body .plinks{ margin-top: 8px; font-size: .82rem; display: flex; gap: 8px; flex-wrap: wrap; }
+  .pub .body .plinks a{
+    color: var(--muted); font-weight: 500;
+    border: 1px solid var(--line); border-radius: 6px; padding: 2px 9px;
+    transition: border-color .15s ease, color .15s ease;
+  }
+  .pub .body .plinks a:hover{ color: var(--accent); border-color: var(--accent); text-decoration: none; }
 
-  .row{ display: flex; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: .97rem; }
+  /* ===== Timeline rows (experience / education / awards / teaching) ===== */
+  .row{ display: flex; gap: 20px; padding: 13px 0; border-bottom: 1px solid var(--line-soft); font-size: .97rem; }
   .row:last-child{ border-bottom: none; }
-  .row .when{ color: var(--faint); white-space: nowrap; flex-shrink: 0; min-width: 132px; font-variant-numeric: tabular-nums; }
+  .row .when{
+    color: var(--faint); white-space: nowrap; flex-shrink: 0; min-width: 128px;
+    font-variant-numeric: tabular-nums; font-size: .9rem; padding-top: 1px;
+  }
   .row .what strong{ font-weight: 600; }
   .row .what .sub{ color: var(--muted); }
-  .row .what ul{ margin: 6px 0 0 18px; color: var(--muted); }
+  .row .what ul{ margin: 7px 0 0 0; padding-left: 18px; color: var(--muted); }
   .row .what ul li{ margin-bottom: 3px; }
 
+  /* ===== Languages ===== */
   .langs{ list-style: none; }
-  .langs li{ padding: 3px 0; }
-  .langs b{ font-weight: 600; }
+  .langs li{ padding: 4px 0; color: var(--muted); }
+  .langs b{ font-weight: 600; color: var(--ink); }
 
-  footer{ margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--faint); font-size: .85rem; }
+  footer{
+    margin-top: 60px; padding-top: 22px; border-top: 1px solid var(--line);
+    color: var(--faint); font-size: .85rem;
+  }
 
-  a:focus-visible{ outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+  /* ===== Entrance motion (only when motion is welcome) ===== */
+  @media (prefers-reduced-motion: no-preference){
+    @keyframes rise{ from{ opacity: 0; transform: translateY(10px); } to{ opacity: 1; transform: none; } }
+    .hero{ animation: rise .8s cubic-bezier(.2,.7,.3,1) both; }
+    section{ animation: rise .7s cubic-bezier(.2,.7,.3,1) both; }
+    section:nth-of-type(1){ animation-delay: .06s; }
+    section:nth-of-type(2){ animation-delay: .12s; }
+    section:nth-of-type(3){ animation-delay: .18s; }
+    section:nth-of-type(4){ animation-delay: .24s; }
+    section:nth-of-type(5){ animation-delay: .30s; }
+  }
 
   @media (max-width: 560px){
-    .hero{ flex-direction: column; gap: 18px; }
-    .photo{ width: 110px; height: 110px; }
-    .name{ font-size: 2rem; }
-    .row{ flex-direction: column; gap: 2px; }
-    .news li{ flex-direction: column; gap: 0; }
+    .wrap{ padding: 44px 22px 64px; }
+    .hero{ flex-direction: column; gap: 20px; }
+    .photo{ width: 104px; height: 104px; }
+    .name{ font-size: 2.05rem; }
+    .focus{ font-size: 1.1rem; }
+    .row{ flex-direction: column; gap: 3px; }
+    .row .when{ min-width: 0; }
+    .interests b{ white-space: normal; }
   }
   @media (prefers-reduced-motion: reduce){ html{ scroll-behavior: auto; } }
+
+  @media print{
+    body{ background:#fff; color:#000; font-size: 11pt; }
+    .status .dot{ animation: none; }
+    .pub .plinks{ display:none; }
+    a{ color:#000; }
+  }
 </style>
 </head>
 
@@ -116,105 +207,106 @@
 <div class="wrap">
 
   <!-- ===== Hero ===== -->
-  <div class="hero">
-    <!-- 换成自己的照片：传到仓库后把 src 改成 photo.jpg -->
-    <img class="photo" src="https://api.dicebear.com/9.x/initials/svg?seed=AL&backgroundColor=2B5C99" alt="Alex Lu">
+  <header class="hero">
+    <!-- 换成自己的照片：把图片传到仓库后，将 src 改为 "photo.jpg" -->
+    <img class="photo" src="https://api.dicebear.com/9.x/initials/svg?seed=AL&backgroundColor=245AA6" alt="Portrait of Alex Lu">
 
     <div class="hero-text">
-      <div class="name">Alex Lu</div>
+      <span class="status"><span class="dot"></span>Seeking a PhD position · 2026 / 2027</span>
+
+      <h1 class="name">Alex Lu</h1>
 
       <p class="affil">M.S. in Electronic &amp; Information Engineering, <strong>Shanghai Jiao Tong University</strong></p>
-      <!-- <p class="affil">Department of Automation · CVPR Lab</p> -->
 
-      <!-- Hero 一句话研究身份：精炼、可扫读 -->
       <p class="focus">
-        I'm dedicated to <b>generative AI</b> &mdash; spanning image/video generation
-        and large language models.
+        I work on <b>generative AI</b> &mdash; image and video generation and editing,
+        and the knowledge inside large language models.
       </p>
 
       <div class="contact">
         <a href="mailto:alexlu99@outlook.com">Email</a>
-        <span class="sep">·</span><a href="https://github.com/AlexLu99" target="_blank">GitHub</a>
-        <!-- 以下链接暂时隐藏，需要时取消注释并填入真实链接
-        <span class="sep">·</span><a href="cv.pdf" target="_blank">CV</a>
-        <span class="sep">·</span><a href="#" target="_blank">Google Scholar</a>
+        <span class="sep">·</span><a href="https://github.com/AlexLu99" target="_blank" rel="noopener">GitHub</a>
+        <!-- 需要时取消注释并填入真实链接
+        <span class="sep">·</span><a href="cv.pdf" target="_blank" rel="noopener">CV</a>
+        <span class="sep">·</span><a href="#" target="_blank" rel="noopener">Google Scholar</a>
         -->
       </div>
     </div>
-  </div>
+  </header>
 
-  <!-- ===== About：问候 + 叙事简历（背景 → 现在 → 目标）===== -->
+  <!-- ===== About ===== -->
   <section id="about">
-    <p class="lead">Hi, and welcome to my homepage!</p>
+    <p class="lead">Hi, and welcome to my homepage.</p>
     <p class="lead" style="margin-top:14px">
-      I'm <strong>Alex Lu</strong>. I earned my M.S. at Shanghai Jiao Tong University (by recommendation),
-      where my research focused on image and video generation. I received my B.S. from Northeastern
-      University, where I focused on machine learning and deep learning. I am currently a visiting student
-      at Westlake University, working on applications of knowledge in large language models (LLMs).</p>
-      <p class="lead" style="margin-top:14px">
-      <strong>I am actively seeking PhD opportunities for 2026 / 2027.</strong>
-      My research interests lie in generative models &mdash; such as image and video generation &mdash;
-      as well as applications of LLMs.
+      I earned my M.S. at <strong>Shanghai Jiao Tong University</strong> (by recommendation),
+      where my research centered on image and video generation. Before that, I completed my B.S. at
+      <strong>Northeastern University</strong>, focusing on machine learning and deep learning. I am
+      currently a visiting student at <strong>Westlake University</strong>, studying how knowledge is
+      represented and used inside large language models.
+    </p>
+    <p class="lead" style="margin-top:14px">
+      <em>I am actively seeking PhD opportunities for 2026 / 2027.</em>
+      My interests lie in generative models &mdash; image and video generation in particular &mdash;
+      and in the applications of LLMs. I'd be glad to hear from groups working in these areas.
     </p>
   </section>
 
-  <!-- ===== 研究兴趣 ===== -->
+  <!-- ===== Research Interests ===== -->
   <section id="interests">
     <h2>Research Interests</h2>
     <p class="interests">
-      <b>Image / Video Generation &amp; Editing</b> · <b>Generative Models</b> · <b>LLMs</b> ·
-      <b>Computer Vision</b>
+      <b>Image / Video Generation &amp; Editing</b>&nbsp; <b>Generative Models</b>&nbsp;
+      <b>Large Language Models</b>&nbsp; <b>Computer Vision</b>
     </p>
-    <p class="lead" style="margin-top:10px">
-      I have broad interests in machine learning and deep learning. Within generative modeling, I focus on
-      <strong>image and video generation and editing<strong> (stylization), especially on <strong>customization tasks<strong>. I am
-      also interested in <strong>large language models (LLMs)<strong>, where I currently explore how to represent and use the
-      &ldquo;knowledge&rdquo; inside them.
+    <p class="lead" style="margin-top:14px">
+      Within generative modeling, I focus on <strong>image and video generation and editing</strong>
+      (stylization), especially <strong>customization tasks</strong>. I am also interested in
+      <strong>large language models</strong>, where I currently explore how to represent and use the
+      &ldquo;knowledge&rdquo; they hold.
     </p>
   </section>
 
-  <!-- ===== News（暂时隐藏，需要时取消注释）=====
+  <!-- ===== News（需要时取消注释）=====
   <section id="news">
     <h2>News</h2>
     <ul class="news">
       <li><span class="date">2024.10</span><span class="item">Our paper on photo animation was accepted to <em>ACCV 2024</em>.</span></li>
-      <li><span class="date">2024.09</span><span class="item">Served as a teaching assistant at the Xuesen Challenge Summer Camp (AI Division), SJTU.</span></li>
     </ul>
   </section>
   -->
 
-  <!-- ===== 论文：按时序倒排，最新在上 ===== -->
+  <!-- ===== Publications ===== -->
   <section id="publications">
     <h2>Publications &amp; Manuscripts</h2>
 
     <div class="pub">
-      <div class="tag">arXiv<br>2025</div>
+      <div class="tag">arXiv<span class="yr">2025</span></div>
       <div class="body">
         <div class="title">Advancing Facial Stylization through Semantic Preservation and Pseudo-Paired Supervision</div>
         <div class="authors"><span class="me">Alex Lu</span>, Yue Zhou</div>
         <div class="venue">arXiv:2506.22022, June 2025</div>
         <div class="plinks">
-          <a href="https://arxiv.org/pdf/2506.22022" target="_blank">[PDF]</a>
-          <a href="https://github.com/AlexLu99/Facial-Stylization" target="_blank">[Code]</a>
+          <a href="https://arxiv.org/pdf/2506.22022" target="_blank" rel="noopener">PDF</a>
+          <a href="https://github.com/AlexLu99/Facial-Stylization" target="_blank" rel="noopener">Code</a>
         </div>
       </div>
     </div>
 
     <div class="pub">
-      <div class="tag">ACCV<br>2024</div>
+      <div class="tag">ACCV<span class="yr">2024</span></div>
       <div class="body">
         <div class="title">Enhancing Photo Animation: Augmented Stylistic Modules and Prior Knowledge Integration</div>
         <div class="authors"><span class="me">Alex Lu</span>, Yue Zhou</div>
         <div class="venue">Asian Conference on Computer Vision (ACCV), 2024</div>
         <div class="plinks">
-          <a href="https://openaccess.thecvf.com/content/ACCV2024/papers/Lu_Enhancing_Photo_Animation_Augmented_Stylistic_Modules_and_Prior_Knowledge_Integration_ACCV_2024_paper.pdf" target="_blank">[PDF]</a>
-          <a href="https://github.com/AlexLu99/Photo-Animation" target="_blank">[Code]</a>
+          <a href="https://openaccess.thecvf.com/content/ACCV2024/papers/Lu_Enhancing_Photo_Animation_Augmented_Stylistic_Modules_and_Prior_Knowledge_Integration_ACCV_2024_paper.pdf" target="_blank" rel="noopener">PDF</a>
+          <a href="https://github.com/AlexLu99/Photo-Animation" target="_blank" rel="noopener">Code</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== 科研经历 ===== -->
+  <!-- ===== Research Experience ===== -->
   <section id="experience">
     <h2>Research Experience</h2>
 
@@ -222,9 +314,9 @@
       <div class="when">Present</div>
       <div class="what">
         <strong>Research Assistant</strong>, Encode Lab, School of Engineering, Westlake University
-        &nbsp;<span class="sub">· advised by Huan Wang</span>
+        <span class="sub">· advised by Huan Wang</span>
         <ul>
-          <li>Research on knowledge in large language models (LLMs).</li>
+          <li>Studying knowledge representation in large language models.</li>
         </ul>
       </div>
     </div>
@@ -233,7 +325,7 @@
       <div class="when">2023.09 – 2025.03</div>
       <div class="what">
         <strong>Research Assistant</strong>, CVPR Lab, Department of Automation, Shanghai Jiao Tong University
-        &nbsp;<span class="sub">· advised by Yue Zhou</span>
+        <span class="sub">· advised by Yue Zhou</span>
         <ul>
           <li>Facial stylization with semantic constraints and pseudo-paired supervision.</li>
           <li>Photo cartoonization with style-adaptive modules and prior losses (ACCV 2024).</li>
@@ -246,22 +338,23 @@
       <div class="when">2021.11 – 2022.07</div>
       <div class="what">
         <strong>Research Assistant</strong>, Hazardous Materials Detection Group, Northeastern University
-        &nbsp;<span class="sub">· advised by Tong Jia</span>
+        <span class="sub">· advised by Tong Jia</span>
         <ul>
-          <li>Faster, more accurate image detection network for hazardous materials.</li>
+          <li>A faster, more accurate detection network for hazardous-material imagery.</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- ===== 教育背景 ===== -->
+  <!-- ===== Education ===== -->
   <section id="education">
     <h2>Education</h2>
 
     <div class="row">
       <div class="when">2022 – 2025</div>
       <div class="what">
-        <strong>M.S. in Electronic &amp; Information Engineering</strong>, Shanghai Jiao Tong University &nbsp;<span class="sub">(recommended admission)</span><br>
+        <strong>M.S. in Electronic &amp; Information Engineering</strong>, Shanghai Jiao Tong University
+        <span class="sub">(recommended admission)</span><br>
         <span class="sub">GPA 3.98/4.0 · Rank 2/105 · Computer Vision, Optimization in Learning and Control, Neural Networks</span>
       </div>
     </div>
@@ -275,52 +368,37 @@
     </div>
   </section>
 
-  <!-- ===== 荣誉 ===== -->
+  <!-- ===== Awards ===== -->
   <section id="awards">
     <h2>Awards &amp; Honors</h2>
-    <div class="row">
-      <div class="when">2022 – 2025</div>
-      <div class="what">Academic Scholarship (First Class), Shanghai Jiao Tong University</div>
-    </div>
-    <div class="row">
-      <div class="when">2023</div>
-      <div class="what">Pan Wen-Yuan Foundation Scholarship</div>
-    </div>
-    <div class="row">
-      <div class="when">2022</div>
-      <div class="what">Excellent Graduate</div>
-    </div>
-    <div class="row">
-      <div class="when">2019 – 2022</div>
-      <div class="what">Academic Scholarship, Northeastern University</div>
-    </div>
-    <div class="row">
-      <div class="when">2019</div>
-      <div class="what">National Scholarship</div>
-    </div>
+    <div class="row"><div class="when">2022 – 2025</div><div class="what">Academic Scholarship (First Class), Shanghai Jiao Tong University</div></div>
+    <div class="row"><div class="when">2023</div><div class="what">Pan Wen-Yuan Foundation Scholarship</div></div>
+    <div class="row"><div class="when">2022</div><div class="what">Excellent Graduate</div></div>
+    <div class="row"><div class="when">2019 – 2022</div><div class="what">Academic Scholarship, Northeastern University</div></div>
+    <div class="row"><div class="when">2019</div><div class="what">National Scholarship</div></div>
   </section>
 
-  <!-- ===== 教学 ===== -->
+  <!-- ===== Teaching ===== -->
   <section id="teaching">
     <h2>Teaching</h2>
     <div class="row">
       <div class="when">2024</div>
       <div class="what"><strong>Teaching Assistant</strong>, Xuesen Challenge Summer Camp — AI Division, SJTU
-        <span class="sub"> · division ranked #1 (Most Popular Summer Camp)</span></div>
+        <span class="sub">· division ranked #1 (Most Popular Summer Camp)</span></div>
     </div>
     <div class="row">
       <div class="when">2023</div>
       <div class="what"><strong>Teaching Assistant</strong>, Digital Image Processing, SJTU
-        <span class="sub"> · course evaluations raised to A/A/A across three classes</span></div>
+        <span class="sub">· evaluations raised to A/A/A across three classes</span></div>
     </div>
   </section>
 
-  <!-- ===== 语言 ===== -->
+  <!-- ===== Languages ===== -->
   <section id="languages">
     <h2>Languages</h2>
     <ul class="langs">
       <li><b>Chinese</b> — native</li>
-      <li><b>English</b> — IELTS 7.5 (Listening 8 / Reading 8.5 / Writing 6 / Speaking 7)</li>
+      <li><b>English</b> — IELTS 7.5 (Listening 8 · Reading 8.5 · Writing 6 · Speaking 7)</li>
     </ul>
   </section>
 
