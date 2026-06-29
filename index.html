@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Zhanyi Lu</title>
-<meta name="description" content="Zhanyi Lu — PhD applicant in Computer Vision. Research interests: image generation, image stylization, generative models, deep learning.">
+<title>Alex Lu</title>
+<meta name="description" content="Alex Lu — PhD applicant in Computer Vision and Machine Learning.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +18,7 @@
     --muted: #5C5C68;
     --faint: #8A8A95;
     --line: #E7E7EC;
-    --accent: #2B5C99;       /* 学术蓝，链接色 */
+    --accent: #2B5C99;
     --accent-soft: #EAF0F7;
     --maxw: 720px;
   }
@@ -37,7 +37,6 @@
   a{ color: var(--accent); text-decoration: none; }
   a:hover{ text-decoration: underline; }
 
-  /* ===== Hero ===== */
   .hero{ display: flex; gap: 30px; align-items: flex-start; }
   .photo{
     width: 132px; height: 132px; flex-shrink: 0;
@@ -55,7 +54,6 @@
   .contact a{ font-weight: 500; }
   .contact .sep{ color: var(--line); }
 
-  /* ===== 区块 ===== */
   section{ margin-top: 44px; }
   h2{
     font-family:"Newsreader", serif; font-weight: 600; font-size: 1.35rem;
@@ -88,7 +86,7 @@
 
   .row{ display: flex; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: .97rem; }
   .row:last-child{ border-bottom: none; }
-  .row .when{ color: var(--faint); white-space: nowrap; min-width: 110px; font-variant-numeric: tabular-nums; }
+  .row .when{ color: var(--faint); white-space: nowrap; min-width: 128px; font-variant-numeric: tabular-nums; }
   .row .what strong{ font-weight: 600; }
   .row .what .sub{ color: var(--muted); }
   .row .what ul{ margin: 6px 0 0 18px; color: var(--muted); }
@@ -114,26 +112,27 @@
 
   <!-- ===== Hero ===== -->
   <div class="hero">
-    <!-- 换成自己的照片：传到仓库后把 src 改成 photo.jpg。建议用清晰的正面照 -->
-    <img class="photo" src="https://api.dicebear.com/9.x/initials/svg?seed=ZL&backgroundColor=2B5C99" alt="Zhanyi Lu">
+    <!-- 换成自己的照片：传到仓库后把 src 改成 photo.jpg -->
+    <img class="photo" src="https://api.dicebear.com/9.x/initials/svg?seed=AL&backgroundColor=2B5C99" alt="Alex Lu">
 
     <div class="hero-text">
-      <div class="name">Zhanyi Lu</div>
+      <div class="name">Alex Lu</div>
 
       <p class="affil">M.S. in Electronic &amp; Information Engineering, <strong>Shanghai Jiao Tong University</strong></p>
-      <p class="affil">Department of Automation · CVPR Lab</p>
+      <!-- <p class="affil">Department of Automation · CVPR Lab</p> -->
 
       <p class="focus">
         I work on <b>image generation</b> and <b>image stylization</b> &mdash; including facial stylization,
         photo cartoonization, and video stylization &mdash; using generative models such as StyleGAN.
       </p>
 
-      <!-- Email 和 CV 已填好。Google Scholar / GitHub 把 # 换成你的真实链接，没有就删掉该行 -->
       <div class="contact">
-        <a href="mailto:luzhanyi@alumni.sjtu.edu.cn">Email</a><span class="sep">·</span>
-        <a href="cv.pdf" target="_blank">CV</a><span class="sep">·</span>
-        <a href="#" target="_blank">Google Scholar</a><span class="sep">·</span>
-        <a href="#" target="_blank">GitHub</a>
+        <a href="mailto:alexlu99@outlook.com">Email</a>
+        <!-- 以下链接暂时隐藏，需要时取消注释并填入真实链接
+        <span class="sep">·</span><a href="cv.pdf" target="_blank">CV</a>
+        <span class="sep">·</span><a href="#" target="_blank">Google Scholar</a>
+        <span class="sep">·</span><a href="#" target="_blank">GitHub</a>
+        -->
       </div>
     </div>
   </div>
@@ -164,7 +163,7 @@
     </p>
   </section>
 
-  <!-- ===== News ===== -->
+  <!-- ===== News（暂时隐藏，需要时取消注释）=====
   <section id="news">
     <h2>News</h2>
     <ul class="news">
@@ -172,6 +171,7 @@
       <li><span class="date">2024.09</span><span class="item">Served as a teaching assistant at the Xuesen Challenge Summer Camp (AI Division), SJTU.</span></li>
     </ul>
   </section>
+  -->
 
   <!-- ===== 论文 ===== -->
   <section id="publications">
@@ -181,10 +181,11 @@
       <div class="tag">ACCV<br>2024</div>
       <div class="body">
         <div class="title">Enhancing Photo Animation: Augmented Stylistic Modules and Prior Knowledge Integration</div>
-        <div class="authors"><span class="me">Zhanyi Lu</span>, Yue Zhou</div>
+        <div class="authors"><span class="me">Alex Lu</span>, Yue Zhou</div>
         <div class="venue">Asian Conference on Computer Vision (ACCV), 2024</div>
         <div class="plinks">
-          <a href="#">[PDF]</a><a href="#">[Code]</a>
+          <a href="https://openaccess.thecvf.com/content/ACCV2024/papers/Lu_Enhancing_Photo_Animation_Augmented_Stylistic_Modules_and_Prior_Knowledge_Integration_ACCV_2024_paper.pdf" target="_blank">[PDF]</a>
+          <!-- <a href="#" target="_blank">[Code]</a> -->
         </div>
       </div>
     </div>
@@ -193,10 +194,11 @@
       <div class="tag">Manuscript</div>
       <div class="body">
         <div class="title">Advancing Facial Stylization through Semantic Preservation and Pseudo-Paired Supervision</div>
-        <div class="authors"><span class="me">Zhanyi Lu</span>, Yue Zhou</div>
+        <div class="authors"><span class="me">Alex Lu</span>, Yue Zhou</div>
         <div class="venue">Manuscript / under review</div>
         <div class="plinks">
-          <a href="#">[PDF]</a>
+          <a href="https://arxiv.org/abs/2506.22022" target="_blank">[arXiv]</a>
+          <!-- <a href="#" target="_blank">[Code]</a> -->
         </div>
       </div>
     </div>
@@ -207,14 +209,25 @@
     <h2>Research Experience</h2>
 
     <div class="row">
-      <div class="when">2023.09 – Present</div>
+      <div class="when">2025.03 – Present</div>
+      <div class="what">
+        <strong>Research Assistant</strong>, Encode Lab, School of Engineering, Westlake University
+        &nbsp;<span class="sub">· advised by Huan Wang</span>
+        <ul>
+          <li>Research on knowledge in large language models (LLMs).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="when">2023.09 – 2025.03</div>
       <div class="what">
         <strong>Research Assistant</strong>, CVPR Lab, Department of Automation, Shanghai Jiao Tong University
         &nbsp;<span class="sub">· advised by Yue Zhou</span>
         <ul>
-          <li>Proposed a StyleGAN-based facial stylization model using semantic constraints and pseudo-paired supervision to improve stylization quality and fidelity.</li>
-          <li>Designed a photo cartoonization model with style-adaptive correlation modules and feature-related prior losses for stronger anime stylization (ACCV 2024).</li>
-          <li>Improved temporal consistency in video stylization by incorporating a temporal structure model.</li>
+          <li>StyleGAN-based facial stylization with semantic constraints and pseudo-paired supervision.</li>
+          <li>Photo cartoonization with style-adaptive modules and prior losses (ACCV 2024).</li>
+          <li>Temporal consistency for video stylization.</li>
         </ul>
       </div>
     </div>
@@ -222,9 +235,9 @@
     <div class="row">
       <div class="when">2021.11 – 2022.07</div>
       <div class="what">
-        <strong>Research Assistant</strong>, Hazardous Materials Detection Group, Department of AI, Northeastern University
+        <strong>Research Assistant</strong>, Hazardous Materials Detection Group, Northeastern University
         <ul>
-          <li>Improved an image detection network for hazardous materials in speed and accuracy via data processing, network architecture, and loss design.</li>
+          <li>Faster, more accurate image detection network for hazardous materials.</li>
         </ul>
       </div>
     </div>
@@ -257,12 +270,11 @@
     <div class="row">
       <div class="when">2024</div>
       <div class="what"><strong>Teaching Assistant</strong>, Xuesen Challenge Summer Camp — AI Division, SJTU
-        <span class="sub"> · division ranked #1 (Most Popular Summer Camp)</span></div>
+        <span class="sub"> · division ranked #1</span></div>
     </div>
     <div class="row">
       <div class="when">2023</div>
-      <div class="what"><strong>Teaching Assistant</strong>, Digital Image Processing, SJTU
-        <span class="sub"> · course evaluations improved to A/A/A across three classes</span></div>
+      <div class="what"><strong>Teaching Assistant</strong>, Digital Image Processing, SJTU</div>
     </div>
   </section>
 
