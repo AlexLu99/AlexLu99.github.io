@@ -4,9 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ===== 改这里：浏览器标签标题，建议用英文（套磁多用英文页）===== -->
-<title>San Zhang</title>
-<meta name="description" content="San Zhang — PhD applicant in Machine Learning. Research interests: LLMs, reinforcement learning, multimodal learning.">
+<title>Zhanyi Lu</title>
+<meta name="description" content="Zhanyi Lu — PhD applicant in Computer Vision. Research interests: image generation, image stylization, generative models, deep learning.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,7 +37,7 @@
   a{ color: var(--accent); text-decoration: none; }
   a:hover{ text-decoration: underline; }
 
-  /* ===== Hero：照片 + 简介 + 联系方式 ===== */
+  /* ===== Hero ===== */
   .hero{ display: flex; gap: 30px; align-items: flex-start; }
   .photo{
     width: 132px; height: 132px; flex-shrink: 0;
@@ -65,17 +64,14 @@
   p{ color: var(--ink); }
   p.lead{ color: var(--muted); }
 
-  /* 研究兴趣 */
   .interests{ color: var(--ink); }
   .interests b{ color: var(--accent); font-weight: 600; }
 
-  /* News 列表 */
   .news{ list-style: none; }
   .news li{ display: flex; gap: 16px; padding: 6px 0; font-size: .96rem; }
   .news .date{ color: var(--faint); font-variant-numeric: tabular-nums; white-space: nowrap; min-width: 84px; }
   .news .item{ color: var(--ink); }
 
-  /* 论文 / 科研经历条目 */
   .pub{ display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); }
   .pub:last-child{ border-bottom: none; }
   .pub .tag{
@@ -90,12 +86,13 @@
   .pub .body .plinks{ margin-top: 6px; font-size: .85rem; }
   .pub .body .plinks a{ margin-right: 12px; }
 
-  /* 教育 / 经历两列 */
   .row{ display: flex; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: .97rem; }
   .row:last-child{ border-bottom: none; }
   .row .when{ color: var(--faint); white-space: nowrap; min-width: 110px; font-variant-numeric: tabular-nums; }
   .row .what strong{ font-weight: 600; }
   .row .what .sub{ color: var(--muted); }
+  .row .what ul{ margin: 6px 0 0 18px; color: var(--muted); }
+  .row .what ul li{ margin-bottom: 3px; }
 
   footer{ margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--faint); font-size: .85rem; }
 
@@ -117,41 +114,38 @@
 
   <!-- ===== Hero ===== -->
   <div class="hero">
-    <!-- 换成自己的照片：传到仓库后把 src 改成 photo.jpg。用清晰的正面照，别用卡通头像 -->
-    <img class="photo" src="https://api.dicebear.com/9.x/initials/svg?seed=SZ&backgroundColor=2B5C99" alt="San Zhang">
+    <!-- 换成自己的照片：传到仓库后把 src 改成 photo.jpg。建议用清晰的正面照 -->
+    <img class="photo" src="https://api.dicebear.com/9.x/initials/svg?seed=ZL&backgroundColor=2B5C99" alt="Zhanyi Lu">
 
     <div class="hero-text">
-      <!-- 改名字（建议中英文都给，正文用英文）-->
-      <div class="name">San Zhang 张三</div>
+      <div class="name">Zhanyi Lu</div>
 
-      <!-- 现状一句话：身份 + 学校/单位。套磁教授第一眼看这行 -->
-      <p class="affil">Final-year undergraduate, <strong>Department of Computer Science, XX University</strong></p>
-      <p class="affil">Incoming research intern @ XX Lab</p>
+      <p class="affil">M.S. in Electronic &amp; Information Engineering, <strong>Shanghai Jiao Tong University</strong></p>
+      <p class="affil">Department of Automation · CVPR Lab</p>
 
-      <!-- 一句话研究方向：越具体越好，别写"AI/机器学习"这种太宽的 -->
       <p class="focus">
-        I work on <b>large language models</b> and <b>reinforcement learning</b>,
-        with a focus on making models reason more reliably.
+        I work on <b>image generation</b> and <b>image stylization</b> &mdash; including facial stylization,
+        photo cartoonization, and video stylization &mdash; using generative models such as StyleGAN.
       </p>
 
-      <!-- 联系方式：Email 和 CV 一定要放前面。没有的删掉即可 -->
+      <!-- Email 和 CV 已填好。Google Scholar / GitHub 把 # 换成你的真实链接，没有就删掉该行 -->
       <div class="contact">
-        <a href="mailto:san.zhang@example.com">Email</a><span class="sep">·</span>
+        <a href="mailto:luzhanyi@alumni.sjtu.edu.cn">Email</a><span class="sep">·</span>
         <a href="cv.pdf" target="_blank">CV</a><span class="sep">·</span>
-        <a href="https://scholar.google.com/" target="_blank">Google Scholar</a><span class="sep">·</span>
-        <a href="https://github.com/" target="_blank">GitHub</a><span class="sep">·</span>
-        <a href="https://www.semanticscholar.org/" target="_blank">Semantic Scholar</a><span class="sep">·</span>
-        <a href="https://x.com/" target="_blank">X</a>
+        <a href="#" target="_blank">Google Scholar</a><span class="sep">·</span>
+        <a href="#" target="_blank">GitHub</a>
       </div>
     </div>
   </div>
 
-  <!-- ===== 关于（可选，两三句即可）===== -->
+  <!-- ===== 关于 ===== -->
   <section id="about">
     <p class="lead">
-      I'm an aspiring PhD applicant interested in building AI systems that reason and act robustly.
-      Previously I interned at XX Lab, where I worked on [一句话你做了什么].
-      I'm broadly excited about [子方向], and I'm looking for a PhD position starting Fall 2027.
+      I recently completed my M.S. at Shanghai Jiao Tong University (admitted by recommendation),
+      where I research in the CVPR Lab on image stylization and generation. My work designs generative
+      models that produce faithful, controllable stylized imagery for portraits, photos, and video.
+      <!-- 下面这句填上你申请的入学学期，例如 "starting Fall 2027" -->
+      I am applying for a PhD position in computer vision and generative modeling.
     </p>
   </section>
 
@@ -159,72 +153,79 @@
   <section id="interests">
     <h2>Research Interests</h2>
     <p class="interests">
-      <b>Large Language Models</b> · <b>Reinforcement Learning</b> ·
-      <b>Multimodal Learning</b> · <b>Reasoning &amp; Planning</b>
+      <b>Image Generation</b> · <b>Facial &amp; Photo Stylization</b> ·
+      <b>Generative Models (GANs)</b> · <b>Computer Vision</b>
     </p>
     <p class="lead" style="margin-top:10px">
-      具体来说，我关心如何让模型在长链推理中保持一致性，以及如何用更少的人类监督来对齐模型。
-      （这里写两三句你真正想做的问题，套磁邮件里也会呼应这段——越具体越能让教授判断匹配度。）
+      I am interested in how to make stylized image and video generation both expressive and faithful &mdash;
+      through semantic preservation, pseudo-paired supervision, style-adaptive feature modules, and temporal
+      consistency for video. More broadly, I want to build controllable generative models that bridge realism
+      and artistic style.
     </p>
   </section>
 
-  <!-- ===== News（可选，但很加分，显示你在持续投入）===== -->
+  <!-- ===== News ===== -->
   <section id="news">
     <h2>News</h2>
     <ul class="news">
-      <li><span class="date">2026.06</span><span class="item">Our paper on [主题] was accepted to <em>NeurIPS 2026</em>. 🎉</span></li>
-      <li><span class="date">2026.03</span><span class="item">Started a research internship at XX Lab.</span></li>
-      <li><span class="date">2025.11</span><span class="item">Released [项目名], an open-source tool for [用途]. <a href="#">[code]</a></span></li>
+      <li><span class="date">2024.10</span><span class="item">Our paper on photo animation was accepted to <em>ACCV 2024</em>.</span></li>
+      <li><span class="date">2024.09</span><span class="item">Served as a teaching assistant at the Xuesen Challenge Summer Camp (AI Division), SJTU.</span></li>
     </ul>
   </section>
 
-  <!-- ===== 论文 / 预印本 =====
-       没有正式论文也没关系：把标题改成 "Preprints" 或 "Research Experience"，
-       把没投出去的工作写成 working paper / in submission，或直接换成下面的科研经历块。 -->
+  <!-- ===== 论文 ===== -->
   <section id="publications">
-    <h2>Publications &amp; Preprints</h2>
+    <h2>Publications &amp; Manuscripts</h2>
 
     <div class="pub">
-      <div class="tag">NeurIPS<br>2026</div>
+      <div class="tag">ACCV<br>2024</div>
       <div class="body">
-        <div class="title">Title of Your Paper Goes Here</div>
-        <!-- 你的名字加 class="me" 会加粗，方便教授一眼看到你是几作 -->
-        <div class="authors"><span class="me">San Zhang</span>, Co-Author, Senior Author</div>
-        <div class="venue">Advances in Neural Information Processing Systems (NeurIPS), 2026</div>
+        <div class="title">Enhancing Photo Animation: Augmented Stylistic Modules and Prior Knowledge Integration</div>
+        <div class="authors"><span class="me">Zhanyi Lu</span>, Yue Zhou</div>
+        <div class="venue">Asian Conference on Computer Vision (ACCV), 2024</div>
         <div class="plinks">
-          <a href="#">[arXiv]</a><a href="#">[PDF]</a><a href="#">[Code]</a>
+          <a href="#">[PDF]</a><a href="#">[Code]</a>
         </div>
       </div>
     </div>
 
     <div class="pub">
-      <div class="tag">Preprint<br>2025</div>
+      <div class="tag">Manuscript</div>
       <div class="body">
-        <div class="title">Another Project, Maybe Under Review</div>
-        <div class="authors"><span class="me">San Zhang</span>, Co-Author</div>
-        <div class="venue">Under review / arXiv preprint, 2025</div>
+        <div class="title">Advancing Facial Stylization through Semantic Preservation and Pseudo-Paired Supervision</div>
+        <div class="authors"><span class="me">Zhanyi Lu</span>, Yue Zhou</div>
+        <div class="venue">Manuscript / under review</div>
         <div class="plinks">
-          <a href="#">[arXiv]</a><a href="#">[Code]</a>
+          <a href="#">[PDF]</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== 科研经历（如果论文少，这块是重点）===== -->
+  <!-- ===== 科研经历 ===== -->
   <section id="experience">
     <h2>Research Experience</h2>
+
     <div class="row">
-      <div class="when">2026 – Present</div>
+      <div class="when">2023.09 – Present</div>
       <div class="what">
-        <strong>Research Intern</strong>, XX Lab &nbsp;<span class="sub">· advised by Prof. XXX</span><br>
-        <span class="sub">一句话：研究什么问题、你负责哪部分、有什么结果或产出。</span>
+        <strong>Research Assistant</strong>, CVPR Lab, Department of Automation, Shanghai Jiao Tong University
+        &nbsp;<span class="sub">· advised by Yue Zhou</span>
+        <ul>
+          <li>Proposed a StyleGAN-based facial stylization model using semantic constraints and pseudo-paired supervision to improve stylization quality and fidelity.</li>
+          <li>Designed a photo cartoonization model with style-adaptive correlation modules and feature-related prior losses for stronger anime stylization (ACCV 2024).</li>
+          <li>Improved temporal consistency in video stylization by incorporating a temporal structure model.</li>
+        </ul>
       </div>
     </div>
+
     <div class="row">
-      <div class="when">2025</div>
+      <div class="when">2021.11 – 2022.07</div>
       <div class="what">
-        <strong>Undergraduate Researcher</strong>, XX University<br>
-        <span class="sub">一句话描述项目和你的贡献。</span>
+        <strong>Research Assistant</strong>, Hazardous Materials Detection Group, Department of AI, Northeastern University
+        <ul>
+          <li>Improved an image detection network for hazardous materials in speed and accuracy via data processing, network architecture, and loss design.</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -232,25 +233,66 @@
   <!-- ===== 教育背景 ===== -->
   <section id="education">
     <h2>Education</h2>
+
     <div class="row">
-      <div class="when">2023 – 2027</div>
-      <div class="what"><strong>B.S. in Computer Science</strong>, XX University<br>
-        <span class="sub">GPA 3.9/4.0 · 相关课程 / 排名（有亮点就写，没有可删）</span>
+      <div class="when">2022 – 2025</div>
+      <div class="what">
+        <strong>M.S. in Electronic &amp; Information Engineering</strong>, Shanghai Jiao Tong University &nbsp;<span class="sub">(recommended admission)</span><br>
+        <span class="sub">GPA 3.98/4.0 · Rank 2/105 · Computer Vision, Optimization in Learning and Control, Neural Networks</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="when">2018 – 2022</div>
+      <div class="what">
+        <strong>B.S. in Automation</strong>, Northeastern University<br>
+        <span class="sub">GPA 4.15/5.0 · Rank 2/268 · Image Processing &amp; Computer Vision, Machine Learning, Deep Learning</span>
       </div>
     </div>
   </section>
 
-  <!-- ===== 荣誉（可选）===== -->
-  <section id="awards">
-    <h2>Awards</h2>
+  <!-- ===== 教学 ===== -->
+  <section id="teaching">
+    <h2>Teaching</h2>
     <div class="row">
-      <div class="when">2025</div>
-      <div class="what">National Scholarship / 某竞赛奖项</div>
+      <div class="when">2024</div>
+      <div class="what"><strong>Teaching Assistant</strong>, Xuesen Challenge Summer Camp — AI Division, SJTU
+        <span class="sub"> · division ranked #1 (Most Popular Summer Camp)</span></div>
+    </div>
+    <div class="row">
+      <div class="when">2023</div>
+      <div class="what"><strong>Teaching Assistant</strong>, Digital Image Processing, SJTU
+        <span class="sub"> · course evaluations improved to A/A/A across three classes</span></div>
+    </div>
+  </section>
+
+  <!-- ===== 荣誉 ===== -->
+  <section id="awards">
+    <h2>Awards &amp; Honors</h2>
+    <div class="row">
+      <div class="when">2022 – 2025</div>
+      <div class="what">Academic Scholarship (First Class), Shanghai Jiao Tong University</div>
+    </div>
+    <div class="row">
+      <div class="when">2023</div>
+      <div class="what">Pan Wen-Yuan Foundation Scholarship</div>
+    </div>
+    <div class="row">
+      <div class="when">2022</div>
+      <div class="what">Excellent Graduate</div>
+    </div>
+    <div class="row">
+      <div class="when">2019 – 2022</div>
+      <div class="what">Academic Scholarship, Northeastern University</div>
+    </div>
+    <div class="row">
+      <div class="when">2019</div>
+      <div class="what">National Scholarship</div>
     </div>
   </section>
 
   <footer>
-    Last updated June 2026 · Built with GitHub Pages
+    English: IELTS 7.5 (L8 / R8.5 / W6 / S7) &nbsp;·&nbsp; Last updated June 2026 &nbsp;·&nbsp; Built with GitHub Pages
   </footer>
 
 </div>
