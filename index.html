@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===== 改这里：浏览器标签上显示的标题 ===== -->
+<title>张三 · 个人主页</title>
+<meta name="description" content="张三的个人主页 —— 前端开发者 / 设计爱好者">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg: #FBFBFD;
+    --ink: #15151B;
+    --muted: #6A6A78;
+    --line: #E8E8F0;
+    --card: #FFFFFF;
+    --accent: #4F46E5;
+    --accent-2: #DB2777;
+    --maxw: 760px;
+  }
+
+  *{ box-sizing: border-box; margin: 0; padding: 0; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Inter", -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* 背景装饰光晕 */
+  .glow{
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: .35;
+    z-index: -1;
+    pointer-events: none;
+  }
+  .glow.one{ width: 420px; height: 420px; background: var(--accent); top: -160px; right: -120px; }
+  .glow.two{ width: 380px; height: 380px; background: var(--accent-2); top: 320px; left: -180px; opacity: .22; }
+
+  .wrap{ max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  /* ===== 顶部导航 ===== */
+  nav{
+    position: sticky; top: 0; z-index: 10;
+    backdrop-filter: saturate(180%) blur(12px);
+    background: rgba(251,251,253,.72);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner{
+    max-width: var(--maxw); margin: 0 auto; padding: 14px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .brand{ font-family:"Bricolage Grotesque",sans-serif; font-weight:800; font-size:1.05rem; letter-spacing:-.02em; }
+  .nav-links{ display: flex; gap: 22px; }
+  .nav-links a{
+    color: var(--muted); text-decoration: none; font-size: .9rem; font-weight: 500;
+    transition: color .2s;
+  }
+  .nav-links a:hover{ color: var(--ink); }
+
+  /* ===== Hero ===== */
+  header.hero{ padding: 88px 0 64px; }
+  .avatar{
+    width: 92px; height: 92px; border-radius: 22px; object-fit: cover;
+    border: 1px solid var(--line); margin-bottom: 28px;
+    box-shadow: 0 12px 32px -12px rgba(79,70,229,.35);
+  }
+  .eyebrow{
+    font-family:"JetBrains Mono",monospace; font-size:.8rem; letter-spacing:.04em;
+    color: var(--accent); text-transform: uppercase; margin-bottom: 14px;
+  }
+  h1{
+    font-family:"Bricolage Grotesque",sans-serif; font-weight:800;
+    font-size: clamp(2.6rem, 8vw, 4.2rem); line-height: 1.02; letter-spacing:-.03em;
+    margin-bottom: 18px;
+  }
+  h1 .grad{
+    background: linear-gradient(115deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .tagline{ font-size: 1.2rem; color: var(--ink); font-weight: 500; margin-bottom: 14px; }
+  .intro{ font-size: 1.05rem; color: var(--muted); max-width: 56ch; }
+
+  .cta-row{ display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+  .btn{
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 20px; border-radius: 12px; font-size: .95rem; font-weight: 600;
+    text-decoration: none; transition: transform .18s, box-shadow .18s, background .18s;
+  }
+  .btn.primary{ background: var(--ink); color: #fff; }
+  .btn.primary:hover{ transform: translateY(-2px); box-shadow: 0 12px 24px -10px rgba(0,0,0,.4); }
+  .btn.ghost{ background: var(--card); color: var(--ink); border: 1px solid var(--line); }
+  .btn.ghost:hover{ transform: translateY(-2px); border-color: var(--accent); color: var(--accent); }
+
+  /* ===== 区块通用 ===== */
+  section{ padding: 52px 0; border-top: 1px solid var(--line); }
+  .label{
+    font-family:"JetBrains Mono",monospace; font-size:.78rem; letter-spacing:.06em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 18px;
+  }
+  h2{
+    font-family:"Bricolage Grotesque",sans-serif; font-weight:700;
+    font-size: 1.7rem; letter-spacing:-.02em; margin-bottom: 16px;
+  }
+  section p{ color: var(--muted); font-size: 1.05rem; }
+  section p + p{ margin-top: 14px; }
+
+  /* 技能标签 */
+  .tags{ display: flex; flex-wrap: wrap; gap: 10px; }
+  .tag{
+    padding: 7px 14px; border-radius: 999px; background: var(--card);
+    border: 1px solid var(--line); font-size: .9rem; font-weight: 500; color: var(--ink);
+  }
+
+  /* 项目卡片 */
+  .cards{ display: grid; gap: 16px; }
+  .proj{
+    display: block; text-decoration: none; color: inherit;
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: 22px 24px; transition: transform .2s, box-shadow .2s, border-color .2s;
+  }
+  .proj:hover{ transform: translateY(-3px); box-shadow: 0 18px 40px -20px rgba(79,70,229,.4); border-color: transparent; }
+  .proj h3{ font-family:"Bricolage Grotesque",sans-serif; font-size:1.15rem; font-weight:700; margin-bottom: 6px; }
+  .proj h3 .arrow{ color: var(--accent); opacity: 0; transform: translateX(-4px); transition: .2s; display: inline-block; }
+  .proj:hover h3 .arrow{ opacity: 1; transform: translateX(0); }
+  .proj p{ font-size: .96rem; margin: 0; }
+  .proj .meta{ font-family:"JetBrains Mono",monospace; font-size:.76rem; color: var(--accent); margin-top: 12px; }
+
+  /* 联系方式 */
+  .links{ display: flex; flex-wrap: wrap; gap: 14px; margin-top: 8px; }
+  .links a{
+    color: var(--ink); text-decoration: none; font-weight: 500; font-size: 1rem;
+    border-bottom: 2px solid var(--line); padding-bottom: 2px; transition: border-color .2s, color .2s;
+  }
+  .links a:hover{ border-color: var(--accent); color: var(--accent); }
+
+  footer{
+    padding: 40px 0 60px; border-top: 1px solid var(--line);
+    color: var(--muted); font-size: .88rem; text-align: center;
+  }
+
+  a:focus-visible, .btn:focus-visible{ outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ scroll-behavior: auto !important; transition: none !important; }
+  }
+</style>
+</head>
+
+<body>
+  <div class="glow one"></div>
+  <div class="glow two"></div>
+
+  <!-- ===== 顶部导航：改 brand 里的名字 ===== -->
+  <nav>
+    <div class="nav-inner">
+      <span class="brand">张三</span>
+      <div class="nav-links">
+        <a href="#about">关于</a>
+        <a href="#skills">技能</a>
+        <a href="#work">项目</a>
+        <a href="#contact">联系</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== Hero 主区 ===== -->
+  <header class="hero">
+    <div class="wrap">
+      <!-- 头像：换成自己的图片地址，或删掉这一行 -->
+      <img class="avatar" src="https://api.dicebear.com/9.x/glass/svg?seed=zhangsan" alt="张三的头像">
+
+      <div class="eyebrow">前端开发者 · 坐标杭州</div>
+
+      <!-- ===== 改这里：你的名字，grad 包住的部分会有渐变色 ===== -->
+      <h1>你好，我是<br><span class="grad">张三</span>。</h1>
+
+      <p class="tagline">把想法做成能用的东西。</p>
+      <p class="intro">
+        三年前端经验，喜欢简洁的界面和把复杂问题讲清楚。
+        平时折腾一些小工具和开源项目，也写点技术笔记。
+      </p>
+
+      <div class="cta-row">
+        <!-- mailto 后面换成你的邮箱 -->
+        <a class="btn primary" href="mailto:hello@example.com">发邮件给我 →</a>
+        <a class="btn ghost" href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== 关于 ===== -->
+  <section id="about">
+    <div class="wrap">
+      <div class="label">关于</div>
+      <h2>简单介绍一下</h2>
+      <p>
+        我是一名前端开发者，专注于把设计稿变成流畅好用的网页。
+        过去做过电商后台、数据可视化和几个个人小项目。
+      </p>
+      <p>
+        相信好的产品来自对细节的执着。工作之外，我喜欢摄影、爬山，
+        以及在周末把家里的一切东西做成自动化。
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== 技能 ===== -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="label">技能</div>
+      <h2>我会这些</h2>
+      <!-- 加减 tag 就行，每个标签一对 span -->
+      <div class="tags">
+        <span class="tag">HTML / CSS</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">React</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">Node.js</span>
+        <span class="tag">UI 设计</span>
+        <span class="tag">Figma</span>
+        <span class="tag">Git</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 项目 ===== -->
+  <section id="work">
+    <div class="wrap">
+      <div class="label">作品</div>
+      <h2>最近在做的</h2>
+      <div class="cards">
+
+        <!-- 复制一整个 <a class="proj"> 块就能加项目 -->
+        <a class="proj" href="#" target="_blank" rel="noopener">
+          <h3>项目一名称 <span class="arrow">↗</span></h3>
+          <p>一句话说清这个项目是做什么的，解决了什么问题。</p>
+          <div class="meta">React · 个人项目</div>
+        </a>
+
+        <a class="proj" href="#" target="_blank" rel="noopener">
+          <h3>项目二名称 <span class="arrow">↗</span></h3>
+          <p>另一个项目的简短介绍，突出你做了哪部分、用了什么技术。</p>
+          <div class="meta">开源 · 200+ Star</div>
+        </a>
+
+        <a class="proj" href="#" target="_blank" rel="noopener">
+          <h3>项目三名称 <span class="arrow">↗</span></h3>
+          <p>把你最得意的东西放上来，链接指向 GitHub 或线上地址。</p>
+          <div class="meta">TypeScript · 工作项目</div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 联系 ===== -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="label">联系</div>
+      <h2>找我聊聊</h2>
+      <p>有合作、招聘或者只是想打个招呼，都欢迎。</p>
+      <div class="links">
+        <a href="mailto:hello@example.com">邮箱</a>
+        <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+        <a href="#" target="_blank" rel="noopener">微博 / X</a>
+        <a href="#" target="_blank" rel="noopener">微信公众号</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">© 2026 张三 · 用 GitHub Pages 搭建</div>
+  </footer>
+
+</body>
+</html>
